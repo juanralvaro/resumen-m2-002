@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1>Lista de prendas</h1>
+<a href="/ropas/form">Crear nueva ropa</a>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>NOMBRE</th>
+        <th>TAMAÑO</th>
+        <th>MATERIAL</th>
+    </tr>
+    <tr th:each="ropa: ${ropas}">
+        <td th:text="${ropa.id}"></td>
+        <td th:text="${ropa.nombre}"></td>
+        <td th:text="${ropa.tamano}"></td>
+        <td th:text="${ropa.material}"></td>
+        <td>
+            <a th:href="@{/ropas/{id}(id=${ropa.id})}">Ver</a>
+            <a th:href="@{/ropas/form/{id}(id=${ropa.id})}">Editar</a>
+            <a th:href="@{/ropas/delete/{id}(id=${ropa.id})}">Borrar</a>
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>

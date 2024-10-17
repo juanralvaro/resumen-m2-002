@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Pantalla de producto</h1>
+<h2>Producto 1</h2>
+<h3>ID del producto</h3>
+<p th:text="${producto.id}"></p>
+<h3>Nombre del producto</h3>
+<p th:text="${producto.nombre}"></p>
+<h3>Precio del producto</h3>
+<p th:text="${producto.precio}"></p>
+<h3>Disponibilidad del producto</h3>
+<p th:if="${producto.activo}" style="color:green">Disponible</p>
+<p th:unless="${producto.activo}" style="color:red">No disponible</p>
+<h3>Categoría</h3>
+<div th:switch="${producto.categoria}">
+    <p th:case="'Comida'">Comida y alimentación</p>
+    <p th:case="'Ropa'">Ropa y accesorios</p>
+    <p th:case="'Dispositivos'">Electrónica y dispositivos</p>
+</div>
+
+</body>
+</html>
